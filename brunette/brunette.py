@@ -439,7 +439,7 @@ def main(
     report = Report(check=check, quiet=quiet, verbose=verbose)
     root = find_project_root(src)
     sources: Set[Path] = set()
-    path_empty(src=src, quiet=quiet, verbose=verbose, ctx=ctx, msg=None)
+    path_empty(src=src, quiet=quiet, verbose=verbose, ctx=ctx, msg='')
     for s in src:
         p = Path(s)
         if p.is_dir():
