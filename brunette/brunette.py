@@ -192,7 +192,7 @@ def patched_normalize_string_quotes(s: str) -> str:
 
 def read_config_file(ctx, param, value):
     if not value:
-        root = black.find_project_root(ctx.params.get('src', ()))
+        root, _description = black.find_project_root(ctx.params.get('src', ()))
         path = root / 'setup.cfg'
         if path.is_file():
             value = str(path)
