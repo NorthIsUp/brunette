@@ -12,7 +12,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 install_requires = [
     'setuptools',
     'wheel',
-    'black@https://github.com/psf/black/archive/refs/tags/22.1.0.tar.gz',
+    'black@https://codeload.github.com/psf/black/tar.gz/refs/tags/22.1.0',
     'click',
 ]
 
