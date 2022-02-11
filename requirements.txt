@@ -1,3 +1,4 @@
+--no-binary black
 setuptools
 wheel
 # Do not pin this one, leave black version up to user
