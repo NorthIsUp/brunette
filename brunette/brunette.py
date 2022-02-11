@@ -1,42 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import configparser
 import re
-from pathspec import PathSpec
-from typing import (
-    List,
-    Optional,
-    Pattern,
-    Set,
-    Tuple,
-    Iterator,
-)
+from typing import Iterator, List, Optional, Pattern, Set, Tuple
 
 import black
-import click
+import black.linegen
 import black.strings
 import black.trans
-import black.linegen
+import click
+from black import (DEFAULT_EXCLUDES, DEFAULT_INCLUDES, DEFAULT_LINE_LENGTH,
+                   FileMode, Path, Report, TargetVersion, WriteBack,
+                   __version__, err, find_project_root, format_str,
+                   get_gitignore, out, path_empty, re_compile_maybe_verbose)
 from black.mode import TargetVersion
-from black import (
-    DEFAULT_LINE_LENGTH,
-    TargetVersion,
-    DEFAULT_INCLUDES,
-    DEFAULT_EXCLUDES,
-    WriteBack,
-    FileMode,
-    re_compile_maybe_verbose,
-    Report,
-    find_project_root,
-    path_empty,
-    __version__,
-    out,
-    Path,
-    get_gitignore,
-    err,
-    format_str,
-)
-import configparser
+from pathspec import PathSpec
 
 PY36_VERSIONS = {version for version in TargetVersion if version.value >= 6}
 
@@ -192,7 +171,7 @@ def patched_normalize_string_quotes(s: str) -> str:
 
 def read_config_file(ctx, param, value):
     if not value:
-        root = black.find_project_root(ctx.params.get('src', ()))
+        root, _description = black.find_project_root(ctx.params.get('src', ()))
         path = root / 'setup.cfg'
         if path.is_file():
             value = str(path)
@@ -437,7 +416,7 @@ def main(
         err(f'Invalid regular expression for exclude given: {exclude!r}')
         ctx.exit(2)
     report = Report(check=check, quiet=quiet, verbose=verbose)
-    root = find_project_root(src)
+    root, _description = find_project_root(src)
     sources: Set[Path] = set()
     path_empty(src=src, quiet=quiet, verbose=verbose, ctx=ctx, msg=None)
     for s in src:
