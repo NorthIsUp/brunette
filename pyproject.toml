@@ -2,6 +2,8 @@
 name='brunette'
 version='0.2.3.dev0'
 zip_safe=false
+description='hi'
+authors=['adam']
 
 [tool.poetry.dependencies]
 black = { url = "git+https://github.com/psf/black.git@d038a24ca200da9dacc1dcb05090c9e5b45b7869#egg=black" }
