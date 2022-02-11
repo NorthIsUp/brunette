@@ -1,0 +1,15 @@
+[tool.poetry]
+name='brunette'
+version='0.2.3.dev0'
+zip_safe=false
+
+[tool.poetry.dependencies]
+black = { url = "git+https://github.com/psf/black.git@d038a24ca200da9dacc1dcb05090c9e5b45b7869#egg=black" }
+click = ''
+
+[tool.poetry.scripts]
+brunette = 'brunette.brunette:main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
