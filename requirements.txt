@@ -3,5 +3,5 @@ wheel
 # Do not pin this one, leave black version up to user
 # black>=19.10b0
 # --no-binary black
-git+https://github.com/psf/black.git@d038a24ca200da9dacc1dcb05090c9e5b45b7869#egg=black
+-e git+https://github.com/psf/black.git@d038a24ca200da9dacc1dcb05090c9e5b45b7869#egg=black
 click
