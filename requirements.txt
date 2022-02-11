@@ -1,5 +1,6 @@
 setuptools
 wheel
 # Do not pin this one, leave black version up to user
-black>=19.10b0 --no-binary black
+black>=19.10b0
+--no-binary black
 click
