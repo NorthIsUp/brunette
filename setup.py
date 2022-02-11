@@ -38,7 +38,7 @@ setup(
     license='Apache 2.0',
     long_description=readme + '\n\n' + history,
     long_description_content_type='text/markdown',
-    install_requires=install_requires,
+    # install_requires=install_requires,
     extras_require={'dev': dev_install_requires},
     classifiers=[
         'Intended Audience :: Developers',
