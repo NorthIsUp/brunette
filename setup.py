@@ -9,12 +9,8 @@ from setuptools import find_packages, setup
 # allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
-install_requires = [
-    'setuptools',
-    'wheel',
-    'black@https://codeload.github.com/psf/black/tar.gz/refs/tags/22.1.0',
-    'click',
-]
+with open('requirements.txt') as f:
+    install_requires = f.read().splitlines()
 
 with open('requirements-dev.txt') as f:
     dev_install_requires = [
