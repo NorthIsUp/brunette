@@ -16,7 +16,7 @@ with open('requirements-dev.txt') as f:
     dev_install_requires = [
         l
         for l in f.read().splitlines()
-        if not (l.startswith('-r') or l.startswith('#') or l.startswith('--'))
+        if not (l.startswith('-r') or l.startswith('#') or l.startswith('--no-binary'))
     ]
 
 with open('README.md', 'r', encoding='utf-8') as rm_file:
