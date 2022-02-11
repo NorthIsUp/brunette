@@ -4,3 +4,4 @@ wheel
 black>=19.10b0
 --no-binary black
 click
+pathspec
