@@ -14,6 +14,7 @@ with open('requirements.txt') as f:
         l for l in 
         f.read().splitlines()
         if not l.startswith('--')
+    ]
 
 with open('requirements-dev.txt') as f:
     dev_install_requires = [
