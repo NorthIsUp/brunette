@@ -10,13 +10,16 @@ from setuptools import find_packages, setup
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 with open('requirements.txt') as f:
-    install_requires = f.read().splitlines()
+    install_requires = [
+        l for l in 
+        f.read().splitlines()
+        if not l.startswith('--')
 
 with open('requirements-dev.txt') as f:
     dev_install_requires = [
         l
         for l in f.read().splitlines()
-        if not (l.startswith('-r') or l.startswith('#') or l.startswith('--no-binary'))
+        if not (l.startswith('-r') or l.startswith('#'))
     ]
 
 with open('README.md', 'r', encoding='utf-8') as rm_file:
